@@ -22,7 +22,7 @@ public class ProposalServiceImpl implements ProposalService {
     }
 
     @Override
-    public ProposalDetailsDto findFullProposal(Long id) {
+    public ProposalDetailsDto findDetailsById(Long id) {
         final var proposal = proposalRepository.findById(id);
         return ProposalDetailsDto.builder().proposalId(proposal.getId())
                 .proposalValidityDays(proposal.getProposalValidityDays()).country(proposal.getCountry())
@@ -32,12 +32,12 @@ public class ProposalServiceImpl implements ProposalService {
 
     @Override
     @Transactional
-    public void createNewProposal(ProposalDetailsDto proposalDetailsDto) {
+    public void create(ProposalDetailsDto proposalDetailsDto) {
         kafkaEvents.sendNewKafkaEvents(saveNewProposal(proposalDetailsDto));
     }
 
     @Override
-    public void removeProposal(Long id) {
+    public void delete(Long id) {
         proposalRepository.deleteById(id);
     }
 
