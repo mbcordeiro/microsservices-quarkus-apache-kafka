@@ -1,16 +1,17 @@
 package org.br.matheuscordeiro.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Proposal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +29,6 @@ public class Proposal {
 
     @Column(name = "proposal_validity_days")
     private Integer proposalValidityDays;
+
+    private LocalDateTime created;
 }
