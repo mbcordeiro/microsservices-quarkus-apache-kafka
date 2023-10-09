@@ -1,9 +1,7 @@
 package org.br.matheuscordeiro.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,7 +9,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Quotation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +22,9 @@ public class Quotation {
 
     @Column(name = "currency_price")
     private BigDecimal currencyPrice;
+
+    public Quotation(LocalDateTime date, BigDecimal currencyPrice) {
+        this.date = date;
+        this.currencyPrice = currencyPrice;
+    }
 }

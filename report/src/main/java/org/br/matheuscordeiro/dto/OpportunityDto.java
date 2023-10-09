@@ -10,5 +10,5 @@ import java.math.BigDecimal;
 @Jacksonized
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record OpportunityDto(String proposalId, String customer, BigDecimal priceTonne, BigDecimal lastCurrencyQuotation) {
+public record OpportunityDto(Long proposalId, String customer, BigDecimal priceTonne, BigDecimal lastCurrencyQuotation) {
 }

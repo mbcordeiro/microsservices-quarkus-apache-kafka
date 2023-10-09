@@ -11,5 +11,5 @@ import java.time.LocalDateTime;
 @Jacksonized
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record ProposalDto(LocalDateTime localDateTime, BigDecimal currencyPrice) {
+public record ProposalDto(Long proposalId, String customer, BigDecimal priceTonne) {
 }
