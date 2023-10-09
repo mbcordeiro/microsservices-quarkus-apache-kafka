@@ -12,6 +12,5 @@ import java.util.List;
 public interface OpportunityService {
     void buildOpportunity(ProposalDto proposalDto);
     void saveQuotation(QuotationDto quotationDto);
-    List<OpportunityDto> generateOpportunityDate();
     ByteArrayInputStream generateCsvReport();
 }

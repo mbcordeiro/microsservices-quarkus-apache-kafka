@@ -42,11 +42,6 @@ public class OpportunityServiceImpl implements OpportunityService {
     }
 
     @Override
-    public List<OpportunityDto> generateOpportunityDate() {
-        return null;
-    }
-
-    @Override
     public ByteArrayInputStream generateCsvReport() {
         final var opportunityList = new ArrayList<OpportunityDto>();
         opportunityRepository.findAll().list().forEach(opportunity -> {
