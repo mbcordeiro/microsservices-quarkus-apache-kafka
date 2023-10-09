@@ -8,9 +8,7 @@ import org.br.matheuscordeiro.entity.Opportunity;
 import org.br.matheuscordeiro.entity.Quotation;
 import org.br.matheuscordeiro.repository.OpportunityRepository;
 import org.br.matheuscordeiro.repository.QuotationRepository;
-import org.br.matheuscordeiro.utils.CsvHelper;
 
-import java.io.ByteArrayInputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,13 +40,13 @@ public class OpportunityServiceImpl implements OpportunityService {
     }
 
     @Override
-    public ByteArrayInputStream generateCsvReport() {
+    public List<OpportunityDto> generateOpportunityDate() {
         final var opportunityList = new ArrayList<OpportunityDto>();
-        opportunityRepository.findAll().list().forEach(opportunity -> {
+        opportunityRepository.findAll().stream().forEach(opportunity -> {
             opportunityList.add(OpportunityDto.builder().proposalId(opportunity.getProposalId())
                     .customer(opportunity.getCustomer()).priceTonne(opportunity.getPriceTonne())
                     .lastCurrencyQuotation(opportunity.getLastCurrencyQuotation()).build());
         });
-        return CsvHelper.opportunitiesToCsv(opportunityList);
+        return opportunityList;
     }
 }
