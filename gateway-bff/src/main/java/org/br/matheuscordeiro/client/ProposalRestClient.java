@@ -18,9 +18,9 @@ public interface ProposalRestClient {
     ProposalDetailsDto getProposalDetailsById(@PathParam("id") long proposalId);
 
     @POST
-    Response createProposal(ProposalDetailsDto proposalDetails);
+    void create(ProposalDetailsDto proposalDetails);
 
     @DELETE
     @Path("/{id}")
-    Response removeProposal(@PathParam("id") long id);
+    void delete(@PathParam("id") long id);
 }
