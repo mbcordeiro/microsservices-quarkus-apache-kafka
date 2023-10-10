@@ -6,10 +6,10 @@ import lombok.Builder;
 import lombok.extern.jackson.Jacksonized;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Jacksonized
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record ProposalDto(Long proposalId, String customer, BigDecimal priceTonne) {
+public record ProposalDetailsDto(Long proposalId, String customer, BigDecimal priceTonne, Integer tonnes,
+                                 String country, Integer proposalValidityDays) {
 }
