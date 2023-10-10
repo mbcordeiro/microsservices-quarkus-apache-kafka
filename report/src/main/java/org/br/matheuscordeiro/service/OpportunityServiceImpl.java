@@ -8,6 +8,7 @@ import org.br.matheuscordeiro.entity.Opportunity;
 import org.br.matheuscordeiro.entity.Quotation;
 import org.br.matheuscordeiro.repository.OpportunityRepository;
 import org.br.matheuscordeiro.repository.QuotationRepository;
+import org.eclipse.microprofile.opentracing.Traced;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 @ApplicationScoped
+@Traced
 public class OpportunityServiceImpl implements OpportunityService {
     private final QuotationRepository quotationRepository;
     private final OpportunityRepository opportunityRepository;

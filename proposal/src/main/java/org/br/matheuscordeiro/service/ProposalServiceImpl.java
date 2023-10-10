@@ -7,10 +7,12 @@ import org.br.matheuscordeiro.dto.ProposalDto;
 import org.br.matheuscordeiro.entity.Proposal;
 import org.br.matheuscordeiro.message.KafkaEvents;
 import org.br.matheuscordeiro.repository.ProposalRepository;
+import org.eclipse.microprofile.opentracing.Traced;
 
 import java.time.LocalDateTime;
 
 @ApplicationScoped
+@Traced
 public class ProposalServiceImpl implements ProposalService {
     private final ProposalRepository proposalRepository;
 
