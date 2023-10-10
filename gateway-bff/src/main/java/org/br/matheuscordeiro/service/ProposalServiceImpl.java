@@ -30,6 +30,6 @@ public class ProposalServiceImpl implements ProposalService{
 
     @Override
     public void delete(Long id) {
-        return proposalRestClient.delete(id);
+        proposalRestClient.delete(id);
     }
 }
